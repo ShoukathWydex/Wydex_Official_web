@@ -1,9 +1,40 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useRouter } from 'next/navigation'
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+    const router = useRouter();
+
+
+  const userClicke=(item:string)=>{
+   switch (item) {
+      case 'Works':
+        router.push('/works');
+        break;
+      case 'Services':
+        router.push('/');
+        break;
+      // case 'Industries':
+      //   router.push('/industries');
+      //   break;
+      case 'About':
+        router.push('/about');
+        break;
+      // case 'Careers':
+      //   router.push('/careers');
+      //   break;
+      // case 'Contact':
+      //   router.push('/contact');
+      //   break;
+      default:
+        console.log('No route found for:', item);
+    }
+    
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -11,7 +42,7 @@ function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = ['Services', 'Industries', 'Works', 'About', 'Careers', 'Contact'];
+  const navItems: string[] = ['Services', 'Industries', 'Works', 'About', 'Careers', 'Contact'];
 
   return ( 
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all ${
@@ -34,15 +65,15 @@ function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2 lg:space-x-4">
             {navItems.map((item) => (
-              <a
+              <div
                 key={item}
-                href={`#${item.toLowerCase()}`}
-                className="relative px-3 lg:px-4 py-2 text-neutral-300 hover:text-white font-medium transition-all duration-300 group text-sm lg:text-base"
+                onClick={()=>userClicke(item)}
+                className="relative px-3 lg:px-4 py-2 text-neutral-300 hover:text-white hover:cursor-pointer   font-medium transition-all duration-300 group text-sm lg:text-base"
               >
-                <span className="relative z-10">{item}</span>
+                <span className="relative z-10" >{item}</span>
                 <div className="absolute inset-0 bg-blue-400/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></div>
                 <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
-              </a>
+              </div>
             ))}
           </nav>
 

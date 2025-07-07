@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 
 // Add TypeScript declaration for 'model-viewer' custom
-declare global {
+declare global { 
   namespace JSX {
     interface IntrinsicElements {
       'model-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
@@ -24,7 +24,7 @@ declare global {
 }
 
 
-const OurStory = () => {
+const OurStory = () => { 
   useEffect(() => {
     // Load the model-viewer script if not already loaded
     if (!document.querySelector('script[src*="model-viewer"]')) {
@@ -42,18 +42,18 @@ const OurStory = () => {
         
         {/* Left side - Text */}
         <div className="space-y-6 md:ml-[100px]">
-          <h2 className="text-4xl font-bold text-white">
+          <p className="text-4xl font-bold text-white">
             Our Story
-          </h2>
+          </p>
           <p className="text-lg text-gray-300 leading-relaxed">
             Wydex Media is the best digital marketing agency in Calicut, offering 360-degree marketing strategies that cover everything from social media and SEO to branding, design, and paid ads. We focus on simplicity, consistency, and real results — helping your brand grow and succeed online.
           </p>
-          <a
-            href="#"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-500 transition duration-300"
+          <button
+           
+            className="hover:cursor-pointer inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-500 transition duration-300"
           >
             About Us
-          </a>
+          </button>
         </div>
 
         
@@ -79,9 +79,7 @@ const OurStory = () => {
           />
           
           {/* Fallback loading indicator */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 opacity-50"></div>
-          </div>
+          
         </div>
 
       </div>

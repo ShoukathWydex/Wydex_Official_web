@@ -17,7 +17,7 @@ function Discription() {
   }, []);
 
   const text =
-    'We are a passionate team in Calicut helping businesses grow through creative, result-driven digital marketing.';
+    `" We are a passionate team in Calicut helping businesses grow through creative, result-driven digital marketing. "`;
   const words = text.split(' ');
 
   // Define animation range
@@ -36,8 +36,8 @@ function Discription() {
   const wordsToShow = Math.floor(progress * words.length);
 
   return (
-    <section className="py-20 px-4 bg-gray-950 relative">
-      <div className="max-w-4xl mx-auto text-center min-h-[350px] flex items-center justify-center">
+    <section className="py-20 px-4 bg-gray-950 relative my-[-2px] ">
+      <div className=" text-center min-h-[350px] flex items-center justify-center">
         <div>
           <p
             className="font-extralight text-[3rem] leading-[1.4] tracking-[-0.01em] p-5 text-center break-words flex flex-wrap justify-center"
